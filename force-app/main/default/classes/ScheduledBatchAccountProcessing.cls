@@ -1,7 +1,7 @@
 /**
 * Created by Sergey Krivorotov.
  *
- * Demo class. Designed to replace the space character with an underscore character in Account Name field.
+ * Demo class. Designed to replace the space character with an underscore character in "Name" field of Account records.
 */
 
 public with sharing class ScheduledBatchAccountProcessing extends ScheduledBatch {

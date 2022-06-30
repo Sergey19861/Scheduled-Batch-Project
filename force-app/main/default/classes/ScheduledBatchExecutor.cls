@@ -14,7 +14,7 @@ public with sharing class ScheduledBatchExecutor {
         ScheduledBatchParams__c params = ScheduledBatchParams__c.getValues(classType.getName());
         ScheduledBatch batch = (ScheduledBatch) classType.newInstance();
         if (delay > 0) {
-            System.scheduleBatch(batch, classType.getName(), params.Interval__c.intValue(), params.Scope__c.intValue());
+            System.scheduleBatch(batch, classType.getName() + System.now().getTime(), params.Interval__c.intValue(), params.Scope__c.intValue());
         } else {
             Database.executeBatch(batch, params.Scope__c.intValue());
         }
