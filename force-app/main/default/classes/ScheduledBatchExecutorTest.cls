@@ -1,5 +1,7 @@
 /**
  * Created by Sergey Krivorotov.
+ *
+ * Contains test logic for ScheduledBatchExecutor.
  */
 
 @IsTest
