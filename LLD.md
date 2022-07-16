@@ -102,7 +102,7 @@ start() and getType() methods with your logic inside.
 | ScheduledBatchParams   | ScheduledBatchParams__c  | Custom Settings | Scheduled Batch(permission set)  | 
 
 
-ActionSettings
+ScheduledBatchParams
 
 | Field label |  API name   |  Type  |                   Significance                   |              Access              |
 |:-----------:|:-----------:|:------:|:------------------------------------------------:|:--------------------------------:|

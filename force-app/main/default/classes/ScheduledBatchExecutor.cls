@@ -6,17 +6,15 @@
 
 public with sharing class ScheduledBatchExecutor {
 
-    public static void execute(Type classType) {
-        execute(classType, 0);
+    public static void execute(ScheduledBatch batch) {
+        execute(batch, 0);
     }
 
-    public static void execute(Type classType, Integer delay) {
-        ScheduledBatchParams__c params = ScheduledBatchParams__c.getValues(classType.getName());
-        ScheduledBatch batch = (ScheduledBatch) classType.newInstance();
+    public static void execute(ScheduledBatch batch, Integer delay) {
         if (delay > 0) {
-            System.scheduleBatch(batch, classType.getName() + System.now().getTime(), params.Interval__c.intValue(), params.Scope__c.intValue());
+            System.scheduleBatch(batch, batch.getType().getName() + System.now().getTime(), batch.params.Interval__c.intValue(), batch.params.Scope__c.intValue());
         } else {
-            Database.executeBatch(batch, params.Scope__c.intValue());
+            Database.executeBatch(batch, batch.params.Scope__c.intValue());
         }
     }
 }

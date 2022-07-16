@@ -24,7 +24,8 @@ private class ScheduledBatchExecutorTest {
     @IsTest
     static void testExecute() {
         Test.startTest();
-        ScheduledBatchExecutor.execute(ScheduledBatchAccountProcessing.class);
+        ScheduledBatchAccountProcessing batch = new ScheduledBatchAccountProcessing();
+        ScheduledBatchExecutor.execute(batch);
         Test.stopTest();
         List<Account> result =[SELECT Name FROM Account];
         System.assert(result[4].Name.contains('Account_For_Batch'), 'Record Not Processed');
@@ -34,9 +35,10 @@ private class ScheduledBatchExecutorTest {
     @IsTest
     static void testExecuteDelay() {
         Test.startTest();
-        ScheduledBatchExecutor.execute(ScheduledBatchAccountProcessing.class, 1);
+        ScheduledBatchAccountProcessing batch = new ScheduledBatchAccountProcessing();
+        ScheduledBatchExecutor.execute(batch, 1);
         Test.stopTest();
         List<CronTrigger> cTriggers = [SELECT Id FROM CronTrigger];
-        System.assertEquals(2, cTriggers.size());
+        System.assertEquals(1, cTriggers.size());
     }
 }
