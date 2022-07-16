@@ -104,10 +104,10 @@ start() and getType() methods with your logic inside.
 
 ScheduledBatchParams
 
-| Field label |  API name   |  Type  |                   Significance                   |              Access              |
-|:-----------:|:-----------:|:------:|:------------------------------------------------:|:--------------------------------:|
-|  Attempts   | Attempts__c | Number | Define how many times the logic will be executed | Scheduled Batch(permission set)  | 
-|  Interval   | Interval__c | Number |  Define how many minutes between next attempts   | Scheduled Batch (permission set) |
+| Field label | API name    | Type   | Significance                                   | Access                           |
+|:------------|:------------|:-------|:-----------------------------------------------|:---------------------------------|
+| Scope       | Scope__c    | Number | Define how many records processed in one batch | Scheduled Batch(permission set)  | 
+| Interval    | Interval__c | Number | Define how many minutes between next attempts  | Scheduled Batch (permission set) |
 
 ***
 
